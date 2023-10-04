@@ -1,5 +1,5 @@
 import { Map } from 'rot-js';
-import Player from './Player.js';
+import Player from './player';
 
 class World {
   constructor(width, height, tilesize) {
