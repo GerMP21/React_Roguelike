@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import World from './utils/world'
 import InputManager from './utils/inputManager'
+import Spawner from './utils/spawner'
 
 const Game = ({ width, height, tilesize }) => {
   const canvasRef = useRef();
@@ -10,6 +11,7 @@ const Game = ({ width, height, tilesize }) => {
   let inputManager = new InputManager();
   const handleInput = (action, data) => {
     console.log(`handle input: ${action}:${JSON.stringify(data)}`);
+
     let newWorld = new World();
     Object.assign(newWorld, world);
     newWorld.movePlayer(data.x, data.y);
@@ -20,9 +22,13 @@ const Game = ({ width, height, tilesize }) => {
     console.log('Create Map!');
 
     let newWorld = new World();
+    let spawner = new Spawner(newWorld);
+
     Object.assign(newWorld, world);
     newWorld.createCellularMap();
     newWorld.moveToSpace(world.player);
+
+    spawner.spawnLoot(10);
 
     setWorld(newWorld);
     // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -1,13 +1,11 @@
-import Loot from './Loot.js';
-import Monster from './Monster.js';
-import Stairs from './Stairs.js';
+import Loot from './loot';
 
 const lootTable = [
-  { name: 'Sword', color: 'darkgrey', ascii: '|', offset: { x: 6, y: 3 } },
-  { name: 'Mace', color: 'darkgrey', ascii: '\\' },
-  { name: 'Axe', color: 'darkgrey', ascii: '/'},
-  { name: 'Health Potion', color: 'red', ascii: '!', offset: { x: 6, y: 3 } },
-  { name: 'Gold coin', color: 'yellow', ascii: '$', offset: { x: 3, y: 3 } },
+  { name: 'Sword', color: 'darkgrey', ascii: '|', offset: { x: 0, y: 3 } },
+  { name: 'Mace', color: 'darkgrey', ascii: '\\', offset: { x: 0, y: 3 } },
+  { name: 'Axe', color: 'darkgrey', ascii: '/', offset: { x: 0, y: 3 }  },
+  { name: 'Health Potion', color: 'red', ascii: '!', offset: { x: 0, y: 3 } },
+  { name: 'Gold coin', color: 'yellow', ascii: '$', offset: { x: 0, y: 3 } },
   {
     name: 'Light Armor',
     color: 'darkgrey',
@@ -30,7 +28,7 @@ class Spawner {
   spawn(spawnCount, createEntity) {
     for (let count = 0; count < spawnCount; count++) {
       let entity = createEntity();
-      this.world.add(entity);
+      this.world.addEntity(entity);
       this.world.moveToSpace(entity);
     }
   }

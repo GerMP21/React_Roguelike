@@ -34,7 +34,7 @@ class World {
   moveToSpace(entity) {
     for (let x = entity.x; x < this.width; x++) {
       for (let y = entity.y; y < this.height; y++) {
-        if (this.worldmap[x][y] === 0 && !this.getEntityAtLocation(x, y)) {
+        if (!this.isWall(x, y) && !this.getEntityAtLocation(x, y)) {
           entity.x = x;
           entity.y = y;
           return;
