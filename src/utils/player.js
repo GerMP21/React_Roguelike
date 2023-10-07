@@ -1,11 +1,11 @@
-import Entity from './Entity';
+import Entity from './entity';
 
 class Player extends Entity {
   inventory = [];
 
   attributes = {
     name: 'Player',
-    color: 'white'
+    color: 'white',
     ascii: '@',
     health: 10
   };

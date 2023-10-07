@@ -22,7 +22,7 @@ const Game = ({ width, height, tilesize }) => {
 
     const ctx = canvasRef.current.getContext('2d');
     ctx.clearRect(0, 0, width * tilesize, height * tilesize);
-    world.draw(ctx);
+    world.drawMap(ctx);
   });
   return (
     <>
